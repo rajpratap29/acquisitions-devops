@@ -12,7 +12,7 @@ export const jwttoken = {
       return jwt.sign(payload, JWT_SECRET, { expiresIn: JWT_EXPIRES_IN });
     } catch (error) {
       logger.error("Failed to authenticate token", error);
-      throw new Error("Failed to authenticate token");
+      throw new Error("Failed to authenticate token", { cause: error });
     }
   },
   verify: token => {
@@ -20,7 +20,7 @@ export const jwttoken = {
       return jwt.verify(token, JWT_SECRET);
     } catch (error) {
       logger.error("Failed to authenticate token", error);
-      throw new Error("Failed to authenticate token");
+      throw new Error("Failed to authenticate token", { cause: error });
     }
   },
 };
