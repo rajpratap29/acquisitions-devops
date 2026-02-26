@@ -2,4 +2,5 @@ node_modules
 .env
 logs
 .env.production
-.env.development.neon_local/
+.env.development
+.neon_local/
